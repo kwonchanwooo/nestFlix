@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import requests from '@/utils/requests';
 import { IndexProps, Movie } from '@/typings';
+import Banner from '@/components/Banner';
 
 const Home: NextPage<IndexProps> = ({ original, topRated, sf, drama, fantasy, thriller, animation }: IndexProps) => {
 	console.log(original);
@@ -14,6 +15,7 @@ const Home: NextPage<IndexProps> = ({ original, topRated, sf, drama, fantasy, th
 			</Head>
 			<Header />
 			<main>
+				<Banner original={original} />
 				<section></section>
 			</main>
 		</div>
