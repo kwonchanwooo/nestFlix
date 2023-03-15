@@ -2,11 +2,20 @@ import Header from '@/components/Header';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import requests from '@/utils/requests';
-import { IndexProps, Movie } from '@/typings';
+import { TV, Movie } from '@/typings';
 import Banner from '@/components/Banner';
 
+interface IndexProps {
+	original: TV[];
+	topRated: Movie[];
+	sf: Movie[];
+	drama: Movie[];
+	fantasy: Movie[];
+	thriller: Movie[];
+	animation: Movie[];
+}
+
 const Home: NextPage<IndexProps> = ({ original, topRated, sf, drama, fantasy, thriller, animation }: IndexProps) => {
-	console.log(original);
 	return (
 		<div className='relative h-screen bg-gradient-to-b from-[#333] to-[#141414]'>
 			<Head>
