@@ -1,12 +1,13 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-
+import useAuth from '@/hooks/useAuth';
 interface Inputs {
 	email: string;
 	password: string;
 }
 function login() {
+	const { signIn, signUp } = useAuth();
 	const [login, setLogin] = useState(false);
 	const {
 		register,
@@ -18,7 +19,9 @@ function login() {
 		console.log('email', email);
 		console.log('pw', password);
 		if (login) {
+			await signIn(email, password);
 		} else {
+			await signUp(email, password);
 		}
 	};
 	return (

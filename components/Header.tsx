@@ -1,8 +1,11 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { FaBell, FaSearch } from 'react-icons/fa';
+import useAuth from '@/hooks/useAuth';
 
 function Header(props: any) {
+	const { logout } = useAuth();
+
 	const [Scrolled, setScrolled] = useState(false);
 
 	useEffect(() => {
@@ -32,7 +35,7 @@ function Header(props: any) {
 				<p className='hidden lg:inline'>Kids</p>
 				<FaBell className='w-6' />
 				<Link href='/'>
-					<img src='https://rb.gy/g1pwyx' alt='profile' className='rounded' />
+					<img src='https://rb.gy/g1pwyx' alt='profile' className='rounded' onClick={logout} />
 				</Link>
 			</div>
 		</header>
