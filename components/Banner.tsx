@@ -23,6 +23,7 @@ function Banner({ original }: Props) {
 		<section className='flex flex-col space-y-2 py-16 pt-[40vh]  md:space-y-4 lg:h[65vh] lg:justify-end lg:pb-12'>
 			<div className='absolute top-0 left-0 z-[1] h-[95vh] w-full'>
 				<Image src={`${baseUrl}original${TV?.backdrop_path}`} alt={`${TV?.name}`} fill sizes='100vw' className='object-cover' />
+				<div className='absolute top-0 left-0 z-[5] w-[100vw] h-[100%] bg-gradient1'></div>
 			</div>
 
 			<h1 className='relative z-[3] text-2xl font-bold drop-shadow md:text-4xl lg:text-7xl'>{TV?.name}</h1>

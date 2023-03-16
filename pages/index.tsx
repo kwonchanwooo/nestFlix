@@ -24,10 +24,15 @@ const Home: NextPage<IndexProps> = ({ original, topRated, sf, drama, fantasy, th
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Header />
-			<main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16'>
+			<main className='relative pl-4 pb-24  lg:space-y-18 lg:pl-16'>
 				<Banner original={original} />
 				<section>
 					<Row title='Top Rated' movies={topRated} />
+					<Row title='Science Fiction' movies={sf} />
+					<Row title='Drama' movies={drama} />
+					<Row title='Fantasy' movies={fantasy} />
+					<Row title='Thriller' movies={thriller} />
+					<Row title='Animation' movies={animation} />
 				</section>
 			</main>
 		</div>
