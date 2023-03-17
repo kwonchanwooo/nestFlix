@@ -9,7 +9,7 @@ interface IAuth {
 	signUp: (email: string, password: string) => Promise<void>;
 	signIn: (email: string, password: string) => Promise<void>;
 	logout: () => Promise<void>;
-	errors: string | null;
+	error: string | null;
 	loading: boolean;
 }
 
@@ -24,7 +24,7 @@ const AuthContext = createContext<IAuth>({
 	signUp: async () => {},
 	signIn: async () => {},
 	logout: async () => {},
-	errors: null,
+	error: null,
 	loading: false,
 });
 

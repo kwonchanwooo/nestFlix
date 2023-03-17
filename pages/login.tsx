@@ -8,7 +8,7 @@ interface Inputs {
 }
 function login() {
 	const { signIn, signUp } = useAuth();
-	const [login, setLogin] = useState(false);
+	const [login, setLogin] = useState(true);
 	const {
 		register,
 		handleSubmit,

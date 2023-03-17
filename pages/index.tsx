@@ -5,6 +5,8 @@ import requests from '@/utils/requests';
 import { TV, Movie } from '@/typings';
 import Banner from '@/components/Banner';
 import Row from '@/components/Row';
+import useAuth from '@/hooks/useAuth';
+import Modal from '../components/Modal';
 
 interface IndexProps {
 	original: TV[];
@@ -17,6 +19,7 @@ interface IndexProps {
 }
 
 const Home: NextPage<IndexProps> = ({ original, topRated, sf, drama, fantasy, thriller, animation }: IndexProps) => {
+	const { user } = useAuth();
 	return (
 		<div className='relative h-screen bg-gradient-to-b from-[#333] to-[#141414]'>
 			<Head>
@@ -24,6 +27,7 @@ const Home: NextPage<IndexProps> = ({ original, topRated, sf, drama, fantasy, th
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Header />
+			<Modal />
 			<main className='relative pl-4 pb-24  lg:space-y-18 lg:pl-16'>
 				<Banner original={original} />
 				<section>
