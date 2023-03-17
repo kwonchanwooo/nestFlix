@@ -1,4 +1,4 @@
-import { atom } from 'recoil';
+import { atom, RecoilRoot } from 'recoil';
 import { Movie } from '@/typings';
 
 export const modalState = atom({
