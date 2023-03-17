@@ -2,10 +2,13 @@ import { modalState, movieState } from '@/atoms/globalAtom';
 import Image from 'next/image';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { baseUrl } from '@/constants/movie';
+import { useRef } from 'react';
 
 function Modal() {
 	const [ShowModal, setShowModal] = useRecoilState(modalState);
 	const Movie = useRecoilValue(movieState);
+	const ref = useRef<any>(null);
+
 	console.log(Movie);
 
 	return (
@@ -16,12 +19,17 @@ function Modal() {
 						src={`${baseUrl}w780${Movie?.poster_path}`}
 						fill
 						className='object-contain'
+						onLoadingComplete={() => ref.current.remove()}
 						alt={`${Movie?.name || Movie?.title}`}
 					/>
+					<div
+						className='w-[40px] h-[40px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] border-[4px] border-solid border-[orange] rounded-[50%] border-l-[transparent] animate-ani-rotation'
+						ref={ref}
+					></div>
 				</div>
 
 				<div>
-					<h2>{Movie?.name || Movie?.title}</h2>
+					<h2 className='text-white text-4xl mb-5 text-center mt-3'>{Movie?.name || Movie?.title}</h2>
 					<p>{Movie?.overview}</p>
 				</div>
 			</article>
