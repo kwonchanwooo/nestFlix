@@ -13,6 +13,7 @@ export interface Movie {
 	overview: string;
 	popularity: number;
 	poster_path: string;
+	name: string;
 }
 
 export interface TV {

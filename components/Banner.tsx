@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useEffect, useState, useRef } from 'react';
 import { baseUrl } from '@/constants/movie';
 import { FaPlay, FaInfoCircle } from 'react-icons/fa';
-import { modalState } from '@/atoms/globalAtom';
+import { modalState, movieState } from '@/atoms/globalAtom';
 import { useRecoilState } from 'recoil';
 interface Props {
 	original: TV[];
@@ -12,7 +12,7 @@ interface Props {
 function Banner({ original }: Props) {
 	const [TV, setTV] = useState<TV | null>(null);
 	const ref = useRef<any>(null);
-
+	const [currentTv, setCurrentTv] = useRecoilState<any>(movieState);
 	const [show, setShow] = useRecoilState(modalState);
 
 	useEffect(() => {
@@ -52,7 +52,13 @@ function Banner({ original }: Props) {
 					<FaPlay /> Play
 				</button>
 
-				<button className='bannerButton bg-[gray]/70 text-white' onClick={() => setShow(true)}>
+				<button
+					className='bannerButton bg-[gray]/70 text-white'
+					onClick={() => {
+						setShow(true);
+						setCurrentTv(TV);
+					}}
+				>
 					More Info
 					<FaInfoCircle />
 				</button>
